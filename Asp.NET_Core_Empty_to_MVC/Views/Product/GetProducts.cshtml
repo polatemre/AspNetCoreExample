@@ -1,0 +1,26 @@
+﻿@using Asp.NET_Core_Empty_to_MVC.Extensions
+
+<h3>Tüm Ürünler</h3>
+
+@* Buraya gelen user modelini hem burada hem de Partial'da kullanabiliriz ancak PartialView'e başka bir model göndermek istiyorsak aşağıdaki gibi parametreye göndermeliyiz, ancak user modelini partial'da tekrardan kullanamayız'.*@
+
+@Html.Partial("~/Views/Product/Partials/ListPartial.cshtml", new Asp.NET_Core_Empty_to_MVC.Models.Product())
+
+<!--HtmlHelper - Server'a Yük Biner Kullanmamalıyız-->
+@Html.TextBox("txtAdi")
+@Html.CustomTextBox("txtCustomAdi", null, "Adınız")
+
+<!--TagHelpers-->
+<form asp-action="GetProducts" asp-controller="Home" method="post">
+    @*<input type="text" asp-for="" />*@
+
+</form>
+
+<cache>
+    Cache : @DateTime.Now
+</cache>
+<br />
+@DateTime.Now
+
+<!--Custom Tag Helper-->
+<email mail="devemrep@gmail.com" display="Emre Polat Email"></email>

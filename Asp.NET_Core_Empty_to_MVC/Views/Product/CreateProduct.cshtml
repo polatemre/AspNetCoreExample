@@ -1,0 +1,42 @@
+﻿@model Product
+
+@* 
+    Sayfaya verilen model ile TagHelpers asp-for attribute ile model binding işlemi
+    Bunu kullanmamız daha efektiflik sağlayacaktır. Çünkü model üzerinden geldiği için yanlış yazma ihtimalini azaltır.
+*@
+@*<form asp-action="CreateProduct" asp-controller="Product" method="post">
+
+    <input type="text" asp-for="ProductName" placeholder="Product Name" />
+    <br />
+    <input type="number" asp-for="Quantity" placeholder="Quantity" />
+    <br />
+    <button>Ürün Ekle</button>
+
+</form>*@
+
+<!--Route tanımlamasında olan parametreler route olarak gelir. Fakat x parametresi route tanımlamasında karşılığı olmadığı için QueryString olarak gelir.
+    Aşağıdaki a tagi sonucu: product/verial/ahmet/mehmet/123?x=asdasdas
+-->
+@*<a asp-action="VeriAl" asp-controller="Product" asp-route-a="ahmet" asp-route-b="mehmet" asp-route-id="123" asp-route-x="asdasdas">content</a>
+*@
+
+@* name üzerinden model binding işlemi (sayfaya model bildirmemize gerek yok) *@
+@*<form asp-action="CreateProduct" asp-controller="Product" method="post">
+
+    <input type="text" name="ProductName" placeholder="Product Name" />
+    <br />
+    <input type="number" name="Quantity" placeholder="Quantity" />
+    <br />
+    <button>Ürün Ekle</button>
+
+</form>*@
+
+@* Html Helper ile model(sayfaya eklenmeli) binding işlemi (kullanmamalıyız) *@
+@*@Html.TextBoxFor(x => x.ProductName, "", new{
+    placeholder = "Product Name"
+})
+<br />
+@Html.TextBoxFor(x => x.Quantity, "", new{
+    placeholder = "Quantity",
+    type= "number"
+})*@

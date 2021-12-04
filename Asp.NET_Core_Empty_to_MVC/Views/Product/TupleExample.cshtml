@@ -1,0 +1,15 @@
+﻿@* ViewModel ile gönderim *@
+@*@model Asp.NET_Core_Empty_to_MVC.Models.ViewModels.UserProduct
+
+    <h3>@Model.Product.ProductName</h3>
+    <h3>@Model.User.Name</h3>*@
+
+
+@* Tuple ile gönderim *@
+@model (Asp.NET_Core_Empty_to_MVC.Models.Product product, Asp.NET_Core_Empty_to_MVC.Models.User user)
+
+<form asp-action="TupleExample" asp-controller="Product" method="post">
+    <input type="text" asp-for="product.ProductName" placeholder="Product Name" /><br />
+    <input type="text" asp-for="user.Name" placeholder="User Name" /><br />
+    <button>Gönder</button>
+</form>

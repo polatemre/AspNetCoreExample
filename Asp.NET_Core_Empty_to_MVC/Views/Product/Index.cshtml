@@ -1,0 +1,67 @@
+﻿@*@model List<Asp.NET_Core_Empty_to_MVC.Models.Product>
+
+<ul>
+    @foreach (var product in Model)
+    {
+        <li>@product.Id</li>
+        <li>@product.ProductName</li>
+        <li>@product.Quantity</li>
+        <br />
+    }
+</ul>*@
+
+@*ViewBag dynamic türde olduğu için türü runtime aşamasında belli olacaktır. 
+Biz development aşamasında . operatörüyle propertyleri görebilmek için as operatörü ile tür dönüşümü yaptık.*@
+<h3>ViewBag</h3>
+<ul>
+    @foreach (var product in ViewBag.products as List<Product>) 
+    {
+        <li>@product.ProductName</li>
+        <li>@product.Quantity</li>
+        <br />
+    }
+</ul>
+
+<h3>ViewData</h3>
+<ul>
+    @foreach (var product in ViewData["products"] as List<Product>) 
+    {
+        <li>@product.ProductName</li>
+        <li>@product.Quantity</li>
+        <br />
+    }
+</ul>
+
+<h3>TempData</h3>
+<ul>
+    @foreach (var product in TempData["products"] as List<Product>) 
+    {
+        <li>@product.ProductName</li>
+        <li>@product.Quantity</li>
+        <br />
+    }
+</ul>
+
+@* Razor İçerisinde HTML Kullanımı *@
+@{
+    <div></div>
+}
+
+@* Razor İçerisinde <text> Etiketi *@
+@{
+    <text>Evet</text>
+}
+
+@* Razor ile Tek Satırlık İşlemler *@
+<h3>@(33 % 5 == 3 ? "Evet" : "Hayır")</h3>
+
+@* Konseptli Yapıları Scope İçerisinde Almadan Yazabiliriz *@
+@if (true)
+{
+    
+} 
+
+@foreach (var item in ViewBag.products as List<Product>)
+{
+    
+}

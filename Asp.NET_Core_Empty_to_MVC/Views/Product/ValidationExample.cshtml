@@ -1,0 +1,21 @@
+﻿@model Product
+
+<script src="~/lib/jquery/jquery.min.js"></script>
+<script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<div asp-validation-summary="All"></div> <!--Tek tek satırlarda hatayı vermek yerine tek yerde hataları listeyebiliriz.-->
+
+<form asp-action="ValidationExample" asp-controller="Product" method="post">
+
+    <input type="text" asp-for="ProductName" placeholder="Product Name" />
+    <span asp-validation-for="ProductName"></span> <br />
+
+    <input type="number" asp-for="Quantity" placeholder="Quantity" />
+    <span asp-validation-for="Quantity"></span> <br />
+
+    <input type="email" asp-for="Email" placeholder="Email" />
+    <span asp-validation-for="Email"></span> <br />
+
+    <button>Gönder</button>
+</form>
