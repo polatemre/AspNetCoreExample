@@ -1,17 +1,17 @@
-Asp.NET Giriş:
+# Asp.NET Giriş
 - Asp.NET: Micrososft tarafından geliştirilmiş bir Web Uygulama Geliştirme mimarisidir.
 - Asp.NET Core: Microsoft tarafından geliştirilen ücretsiz ve açık kaynak Web Geliştirme mimarisidir. Asp.NET'in halefidir. Windows, linux, mac.. çalışır. Tüm Asp.NET altyapısı yeniden tasarlanmıştır.
 - Asp.NET Core ile gelen yenilikler: Daha performanslı, cross platform, modüler altyapı, dependency injection, asenkron işlemler, kolay bakım, razor pages
 
 
 
-İnternetin Mantığı:
+# İnternetin Mantığı
 - Biz tıkladım, girdim, site açıldı yerine; istek(request) gönderdim, cevap(response) aldım şeklinde söyleyeceğiz.
 - Backend(Server Side) veriyi üretir, frontend(client side) üretilmiş veriyi sunar.
 
 
 
-Sunucu Çeşitleri:
+# Sunucu Çeşitleri
 - IIS(Internet Information Services): Asp.NET Core dahil olmak üzere web uygulamalarını barındırmak için esnek, güvenli ve yönetilebilir bir Web Sunucusudur.
 - Kestrel: Asp.NET Core uygulamalarında dahili olarak gelen bir web sunucusudur.
 - Nginx: Linux sistemlerde Asp.NET Core uygulamalarını çalıştırabilmemizi sağlayan bir sunucudur. Reverse Proxy olarak Asp.NET Core uygulamalarındaki dahili sunucuyla(Kestrel) işlevsellik gösterir.
@@ -21,7 +21,7 @@ Sunucu Çeşitleri:
 
 
 
-Web Uygulaması Geliştirme Yaklaşımları:
+# Web Uygulaması Geliştirme Yaklaşımları
 
 Olay Tabanlı Web Geliştirme Mimarisi(Event Driven Programming):
 - Programın akışını kullanıcı eylemlerine göre yönlendiren programlama yaklaşımıdır. Örn: Lambanın botonuna basıldığında ışığı aç.
@@ -45,7 +45,7 @@ API Mimarisi (Application Programming Interface):
 
 
 
-Dosya Yapısı:
+# Dosya Yapısı
 
 Program.cs:
 - Asp.NET Core uygulaması özünde bir console uygulamasıdır.
@@ -67,7 +67,7 @@ appsettings.json:
 
 
 
-MVC(Model-View-Controller):
+# MVC(Model-View-Controller)
 - Mimarisel Desendir (Architectural Pattern)
 - Mimarisel desenler, tasarım desenlerinden daha geniş kapsamlıdır. İçinde farklı tasarım desenleri(Observer, Decorator) bulunur. Belli bir mimarinin oturduğu desenlerdir. Tasarım desenleri belirli senaryolara uygun yerleştirilirken, mimarisel desenler ise genel yaklaşımımızı belirlerler.
 - Microsoft bu desen üzerine oturtulmuş Asp.NET Core MVC mimarisini geliştirmişir.
@@ -89,7 +89,8 @@ Boş Asp.NET Core uygulamasına MVC mimarisini ekleme işlemi:
 
 
 
-UrlHelpers Fonksiyonları: Asp.Net Core MVC uygulamalarında url oluşturmak için yardımcı metotlar içeren ve o anki url'e dair bizlere bilgi veren bir sınıftır
+# UrlHelpers Fonksiyonları
+- Asp.Net Core MVC uygulamalarında url oluşturmak için yardımcı metotlar içeren ve o anki url'e dair bizlere bilgi veren bir sınıftır
 Metotlar
 - Action: Verilen Controller ve Action'a ait url oluşturmayı sağlayan metottur. Verdiğimiz route konfigurasyonuna göre oluşturur. Örn: Url.Action("index", "product", new{ id = 5}) -> /product/index/5
 - ActionLink: Action ile aynı özellik ancak host kısmını başına ekler. Örn: Url.ActionLink("index", "product", new{ id = 5}) -> https://localhost:5001/product/index/5
@@ -100,7 +101,8 @@ Property
 
 
 
-HtmlHelpers Fonksiyonları: Günümüzde TagHelper'lar geldiği için tag oluşturma işinde pek kullanmayız. TagHelper'lar daha az maliyetlidir. HtmlHelper'lar sunucuya boşa yorar. 
+# HtmlHelpers Fonksiyonları
+- Günümüzde TagHelper'lar geldiği için tag oluşturma işinde pek kullanmayız. TagHelper'lar daha az maliyetlidir. HtmlHelper'lar sunucuya boşa yorar. 
 
 Metotlar:
 - Html.Partial: Hedef View'i render etmemizi sağlar.
@@ -116,7 +118,8 @@ Propertyler: Kod üzerinde anlatıldı
 
 
 
-TagHelper Fonksiyonları: Daha okunabilir, anlaşılabilir ve kolay geliştirilebilir bir view inşa etmemizi sağlayan, Asp.NET Core ile birlikte HtmlHelpers'ların yerine gelen yapılardır.
+# TagHelper Fonksiyonları
+- Daha okunabilir, anlaşılabilir ve kolay geliştirilebilir bir view inşa etmemizi sağlayan, Asp.NET Core ile birlikte HtmlHelpers'ların yerine gelen yapılardır.
 - Viewlerde ki kod maliyetini oldukça düşürmektedir. Daha az kod yazmış oluruz.
 - HtmlHelpers'ların html nesnelerinin generate edilmesini server'a yüklemesinin getirdiği maliyetide ortadan kaldırmaktadırlar.
 - HtmlHelpers'lar da ki programatik yapılanma, programlama bilmeyen tasarımcıların çalışmasını imkansız hale getirmekteydi. TagHelpers ile buradaki kusur giderildi ve tasarımcılar açısından programlama bilgisine ihtiyaç duyulmaksızın çalışma yapılabilir nitelik kazandırdı.
@@ -138,14 +141,15 @@ Partial TagHelper:
 
 
 
-Model Binding: Http Request ile gelen verilerin ayrıştırılarak ilgili controller'da bulunan action metotlarında uygun herhangi bir türe dönüştürülmesi işlemidir.
+# Model Binding
+- Http Request ile gelen verilerin ayrıştırılarak ilgili controller'da bulunan action metotlarında uygun herhangi bir türe dönüştürülmesi işlemidir.
 - Örneğin formdan girilen inputları, class propertylerine bind edilmesi. Class propertylerine atanacaktır.
 - Bir action metodu varsayılan olarak get'tir.
 - Request neticesinde gelen dataların hepsi Action fonksiyonlarda parametrelerden yakalanmaktadır.
 
 
 
-Kullanıcıdan Veri Alma Yöntemleri:
+# Kullanıcıdan Veri Alma Yöntemleri
 - Kullanıcıdan veri request ile alınabilir.
 
 Form Üzerinden Veri Alma:
@@ -178,7 +182,7 @@ Ajax Tabanlı Veri Alma:
 
 
 
-Kullanıcıdan Gelen Verilerin Doğrulanması - Validation:
+# Kullanıcıdan Gelen Verilerin Doğrulanması - Validation
 
 Data Annotation ile Validation
 - Validation paralel bir şekilde client ve server taraflarında uygulanmalıdır.
@@ -201,7 +205,7 @@ Server'da ki Validation'ları Dinamik olarak Client Tabanlı Uygulamak
 
 
 
-Layout:
+# Layout
 - Views -> Shared -> _Layout.cshtml olarak tanımlanır. Standart haline geldiği için, genellikle böyledir. Ancak farklı dizinde ve isimde de tanımlanabilir.
 - Tekrar eden yapılar Layout dosyasında yazılır. Header, footer gibi.
 
@@ -230,7 +234,7 @@ _ViewImports.cshtml:
 
 
 
-Modüler Tasarım:
+# Modüler Tasarım
 - Örneğin araba birden fazla parçalardan bir araya gelmiş bir bütündür. Arabanın tekerleği bozulunca motoru da bozulmaz.
 - Single Responsibilty Principle tek sorumluluk prensibi bu açıdan önemlidir.
 - PartialView ve ViewComponent ile MVC mimarisinde modüler bir yapılanma sağlayabiliriz.
@@ -256,7 +260,7 @@ ViewComponent:
 
 
 
-Route:
+# Route
 - Gelecek olan isteğin hangi rotaya gideceğini belirlyen şablonlardır.
 - UseRouting() middleware'i tetiklendiği zaman gelen requestteki rotaları ayırmakta ve ilgili rotaya karşılık gelen controller hangisi ise onu ayağa kaldırır ve gerekli action'ı tetikler.
 - UseEndpoints middleware'i kendi içerisinde rotaları tutar ve tarif etmemizi sağlar. UseEndpoints içerisinde kendi custom rotalarımızı tanımlayabiliriz.
@@ -270,7 +274,7 @@ Custom Route Handler(Özelleştirilmiş Rota İşleme Operasyonu):
 
 
 
-MiddleWare:
+# MiddleWare
 - Clientten gelen request neticesinde response dönene kadar olacak işlerin, yapılacak işlemlerin sorumluluğunu üstlenecek olan ara yazılımlara denir.
 - Web uygulamaasına client'tan gelen request'e karşılık verilecek response'a kadar arada farklı işlemler gerçekleştirmek ve sürecin gidişatına farklı yön vermek isteyebiliriz.
 - Controller'dan önceki işlemler, controllerın devreye alınması, controllerdan sonra yapılacak işlemler vs. hepsi middleware yapılanması iledir.
@@ -288,7 +292,7 @@ Hazır Middleware'ler: Run, Use, Map, MapWhen
 
 
 
-Dependency Injection Desgin Pattern & IoC(Inversion of Control) Desgin Pattern
+# Dependency Injection Desgin Pattern & IoC(Inversion of Control) Desgin Pattern
 
 Dependecy Inversion Principle: 
 - Bağımlılıkların tersine çevrilmesi. Dependency Injection Design Pattern ile bu prensibi pratikte uygulamış oluyoruz.
@@ -318,7 +322,7 @@ Built-in Container
 
 
 
-Areas Yapılanması:
+# Areas Yapılanması
 - Bir web uygulamasında farklı işlevsellikleri ayırmak için kullanılan özelliklerdir.
 - Bir web uygulaması arayüz ve yönetim panelinden oluşur. Genellikle bunları ayırmak için kullanabiliriz.
 - Bu farklı işlevsellikler için farklı katmanda, bir route ayarlamamızı sağlayan ve bu katmanda o işleve özel yönetim sergileyen bir yapılanmadır.
@@ -351,7 +355,7 @@ Area'lar Arası Veri Taşıma İşlemi:
 
 
 
-Derinlemesine ViewModel & DTO Yapılanması (AutoMapper Library)
+# Derinlemesine ViewModel & DTO Yapılanması (AutoMapper Library)
 
 ViewModel: 
 - Temelde iki farklı senaryoya karşılık sorumluluk üstlenen ve biz yazılım geliştiricilerin işini kolaylaştıran operasyonel nesnelerdir.
@@ -396,7 +400,7 @@ ViewModel'ı Entity Model'a Nasıl Dönüştürebiliriz?
 
 
 
-appsettings.json Dosyası Nedir? Ne İşe Yarar?
+# appsettings.json Dosyası Nedir? Ne İşe Yarar?
 - Ortama göre veya yazılımın parametrelerine göre konfigurasyonlar yapmak isteyebiliriz.
 - appsettings.json dosyası, Asp.NET Core uygulamalarında yapılandırma araçlarından birisidir.
 - Yapılandırma Nedir?: Yapılandırma, bir uygulamanın herhangi bir ortamda gerçekleştireceği davranışları belirlememizi sağlayan statik değerin tanımlanmasıdır. Yapılandırma genellikle algoritmanın dışında lakin algoritmada kullanılacak olan değerleri belirleme sürecidir.
@@ -410,13 +414,12 @@ Yapılandırma Araçları:
 - Secrets.json (Secret Manager Tools)
 - Environment Variables
 
-
 Options Pattern ile Konfigurasyonları Dependency Injection ile Yapılandırma
 - Options Pattern appsettings.json dosyasındaki konfigurasyonları Dependency Injection ile kullanmamızı sağlayan ve yapılandırılmış olan nesnel modellerle ilgili konfigurasyonları temsil etmemizi sağlayan bir tasarım desenidir.
 
 
 
-secret.json ile Hassas Verilerin Korunması (Asp.NET Core Secret Manager Tools)
+# secret.json ile Hassas Verilerin Korunması (Asp.NET Core Secret Manager Tools)
 - appsettings'deki hassas veriler connectionstring gibi sunucuya yüklendiğinde açık halde durur. Bu nedenle secret.json gibi farklı dosyalarda tutmamız gerekir.
 - Web uygulamalarında development ortamında kullandığımız bazı verilerimizin canlıya deploy edilmesini istemeyebiliriz.
 Bu verilerimiz:
@@ -439,7 +442,7 @@ Secret Manager Verileri Nerede Depolamaktadır?
 
 
 
-Environment:
+# Environment
 - Bir web uygulamasında, uygulamanın bulunduğu aşamalara dayalı, davranışı kontrol etmek ve yönlendirmek isteyebiliriz.
 - İşte bunun Environment dediğimiz değişkenler mevcuttur.
 - 3 temel ortam bulunur: Development, Staging, Production
