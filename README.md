@@ -148,7 +148,7 @@ Model Binding: Http Request ile gelen verilerin ayrıştırılarak ilgili contro
 Kullanıcıdan Veri Alma Yöntemleri:
 - Kullanıcıdan veri request ile alınabilir.
 
-Formdan Üzerinden Veri Alma:
+Form Üzerinden Veri Alma:
 - IFormCollection: Herhangi bir sınıf oluşturmadan post edilen form nesnelerine erişebiliyoruz.
 
 - Model binding: Formdan gönderilen input nesnelerindeki name ya da asp-for(render edildiğinde name'e dönüşür) değerlerine karşılık bir sınıf tanımlayıp onu instance'ındaki propertyler ile binding işlemi gerçekleştirebiliyoruz.
@@ -157,16 +157,21 @@ QueryString Üzerinden Veri Alma:
 - QueryString: Güvenlik gerektirmeyen bilgilerin url üzerinde hızlı bir şekilde taşınması için kullanılan yapılanmadır.....com/sehir/ankara?ilce=2 -> ?ilce=2 (QueryString değeri)
 - Sadece kullanıcıdan değil yazılımsal operasyonlar neticesinde QueryString'e değerler koyabilir ve kullanabiliriz.
 - QueryString yapılan requestin türü(get, set..) her ne olursa olsun QueryString değerleri taşınabilir. 
+- FromQuery: Url içerisine gömülen parametreleri okumak için kullanılan attribute dur.
 
 Route Parameter Üzerinden Veri Alma:
 QueryString: 	/user?name=max
 Route Parameter:/user/max
 - Bu biraz olsun güvenlik sağlıyor çünkü name parametresini gizlemiş oluyoruz. 
+- FromRoute: Endpoint url'i içerisinde gönderilen parametreleri okumak için kullanılır. Yaygın olarak resource'a ait id bilgisi okurken kullanılır.
 
 Header Üzerinden Veri Alma:
 - Kullanıcının göndermiş olduğu http request içerisinde bulunan kısımdır.
 - Authorization, JWT'de header'a verileri koyup o şekilde yetkilendirmeleri sağlıyoruz.
 - Postman ile header kısmına veri koyup request'te bulunabiliriz.
+
+Body Üzerinden Veri Alma:
+- FromBody: Http request inin body'si içerisinde gönderilen parametreleri okumak için kullanılır.
 
 Ajax Tabanlı Veri Alma:
 - Client tabanlı istek yapmamızı sağlayan ve bu isteklerin sonucu almamızı sağlayan JavaScript tabanlı bir mimaridir.
